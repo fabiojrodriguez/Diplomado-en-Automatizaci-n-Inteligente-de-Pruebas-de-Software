@@ -14,14 +14,13 @@ Feature: Prueba simple de Karate
     And match response.data.id == 2
 
   @CP2
-  Scenario: Validar respuesta de usuario numero 2
+  Scenario: Validar respuesta de usuario numero 2 con respuesta incorrecta
 
     Given path '/api/user/2'
     And def body_request = read('classpath:singleUserSucces.json')
     And request body_request
     When method GET
     Then status 201
-    And match response.data.id == 2
 
   @CP3
   Scenario: Validar respuesta usuairo fallido
@@ -31,7 +30,7 @@ Feature: Prueba simple de Karate
     Then status 404
 
   @CP4
-  Scenario: Validar respuesta usuairo fallido
+  Scenario: Validar respuesta usuairo fallido con respuesta 200
 
     Given path '/api/users/23'
     When method GET
